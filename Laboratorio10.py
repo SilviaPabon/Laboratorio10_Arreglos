@@ -22,20 +22,32 @@ def a_power_b(a, b):
             acumul *= a
     return acumul
 
-# Desarrollo ejerc. 9.1
-    # a_power_b_bucle calcula todas las potencias que el usario pida, se detiene
+# Desarrollo ejerc. 9.2
+    # a_power_b_bucle sigue calculando todas las potencias que el usario pida y se detiene
     # cuando el usuario introduce a = 0
         #Se usa un while, que se ejecutara hasta que a sea 0
-
+        #Adicionalmente ahora cuenta el número de potencias realizadas 
+        #y cuántas veces el resultado fue para o impar
 def a_power_b_bucle():
+    contador = 0
+    par = 0
+    impar = 0
     while True:
         a = int(input("Ingresar el valor de la base: "))
         if not a:
             print("Ha introducido base = 0. FIN.")
+            print("Ud hizo", contador, "potencias")
+            print("Ud hizo", par, "potencias pares")
+            print("Ud hizo", impar, "potencias impares")
             break
         b = int(input("valor de el exponente: "))
-        #Si a no es 0, se ejecutará también la función a_power_b invocada
         c = a_power_b(a, b)
+        #Si a no es 0, se ejecutará también la función a_power_b invocada        
+        contador +=1
         print("La potencia de " + str(a) + " elevado a la " + str(b) + " es: " + str(c))
+        if (c%2 == 0):
+            par += 1
+        elif (c%2 == 1):
+            impar += 1
 
-a_power_b_bucle() 
+a_power_b_bucle()
