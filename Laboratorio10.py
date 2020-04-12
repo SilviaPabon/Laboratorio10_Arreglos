@@ -4,14 +4,14 @@ Created on Fri Apr  3 10:57:27 2020
 
 @author: --
 """
-# Informe laboratorio 10 parte  
-# Desarrollo ejerc. potencia, sin usar ** ni librería math
+# Informe laboratorio 10 - Desarrollo en Python
+  
+# Desarrollo ejerc. 7 potencia, sin usar ** ni librería math
 
-# lín. 16, Se realiza un ciclo for, donde "a" será multiplicado por sí mismo, n veces según sea el valor de b
-    # 16 Se utiliza valor absoluto para cuando b sea negativo
-    # Cuando hay exponentes negativos, n < 0, la potencia queda de la forma 1/(a**(n))
-
-def a_power_b_(a, b):
+# a_power_b retorna al ser invocada, el resultado de elevar "a" a la "b"
+    #Se usa un for para multiplicar "a" por sí mismo, "b" cantidad de veces
+    #Se usa if para algunas condiciones, p. Ej, si b es negativo
+def a_power_b(a, b):
     acumul=1
     acumul2=1
     for i in range (abs(b)):
@@ -22,12 +22,20 @@ def a_power_b_(a, b):
             acumul *= a
     return acumul
 
-# a es la entrada para el número que es la base 
-a = int(input("Ingresar el valor de la base: "))
-# b es la entrada para el número que es la base
-b = int(input("Ingresar el valor del exponente: "))
+# Desarrollo ejerc. 9.1
+    # a_power_b_bucle calcula todas las potencias que el usario pida, se detiene
+    # cuando el usuario introduce a = 0
+        #Se usa un while, que se ejecutara hasta que a sea 0
 
-# invocación de la función para luego imprimir el resultado
-c= a_power_b_(a, b)
+def a_power_b_bucle():
+    while True:
+        a = int(input("Ingresar el valor de la base: "))
+        if not a:
+            print("Ha introducido base = 0. FIN.")
+            break
+        b = int(input("valor de el exponente: "))
+        #Si a no es 0, se ejecutará también la función a_power_b invocada
+        c = a_power_b(a, b)
+        print("La potencia de " + str(a) + " elevado a la " + str(b) + " es: " + str(c))
 
-print("La potencia de " + str(a) + " elevado a la " + str(b) + " es: " + str(c))
+a_power_b_bucle() 
